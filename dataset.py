@@ -315,7 +315,7 @@ class VideoFromImagesConfig:
     height: int = 64
     width: int = 64
     fixed_spot: bool = True
-    max_radius: int = 2
+    max_radius: int = 5
     schedule_fn: Callable[[int], List[int]] = triangular_radius_schedule
     return_ch_first: bool = False
     normalize: bool = True
@@ -336,10 +336,10 @@ class VideoFromImagesConfig:
     gauss_sigma_min: float = 0.4
     gauss_sigma_max: float = 0.8
     # new controls for spot presence/timing
-    spot_probability: float = 0.85
+    spot_probability: float = 1.0
     spot_min_frames: int = 1
     spot_max_frames: Optional[int] = 10
-    spot_count_choices: Tuple[int, ...] = (0, 1, 2, 3)
+    spot_count_choices: Tuple[int, ...] = (4, 8, 12)
 
 
 class BrightSpotVideoDataset(Dataset):
